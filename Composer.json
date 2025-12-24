@@ -1,0 +1,5 @@
+{
+    "require": {
+        "t0k4rt/php-barcode-reader": "^2.2"
+    }
+}

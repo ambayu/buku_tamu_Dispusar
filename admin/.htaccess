@@ -1,0 +1,21 @@
+# Proteksi folder admin
+
+# Mencegah listing direktori dan proteksi file sensitif
+
+Options -Indexes
+
+# Set default index files
+
+DirectoryIndex admin.php index.php
+
+# Blokir akses ke file konfigurasi dan environment
+
+<FilesMatch "^(\.env|\.htaccess|config\.php|database\.php)">
+Require all denied
+</FilesMatch>
+
+# Izinkan akses normal ke semua file lainnya
+
+<FilesMatch "\.php$">
+Require all granted
+</FilesMatch>

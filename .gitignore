@@ -1,0 +1,42 @@
+# Environment variables
+.env
+
+# Error logs
+error_log
+error.log
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+*.old
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation files (not needed in production)
+MIGRATION_STATUS.md
+PHP5_COMPATIBILITY.md
+README_RINGKASAN.md
+SECURITY_README.md
+TEMPLATE_SECURE_FILE.php
+
+# Dependencies
+node_modules/
+# vendor/ - uncomment jika ingin install via composer di VPS
+
+# Composer files
+composer.phar
+composer.lock
