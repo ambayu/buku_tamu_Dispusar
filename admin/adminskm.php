@@ -41,7 +41,7 @@ requireAdminLogin();
 
     <div class="container" style="max-width: 90%; margin-bottom:100px; margin-top:100px;">
         <?php $_SESSION['menu'] = "skm";
-        include("menu.php");
+        include("../menu.php");
         $no = 1; ?>
         <h5 class="fw-bold">INDEKS KEPUASAN MASYARAKAT</h5>
         <form action="" method="POST">

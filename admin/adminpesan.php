@@ -41,7 +41,7 @@ requireAdminLogin();
 
 
         <?php $_SESSION['menu'] = "pesanbuku";
-        include("menu.php");
+        include("../menu.php");
         $no = 1; ?>
         <h5 class="fw-bold">PESAN BUKU</h5>
         <table id="data_kunjungan" class="display table table-bordered">
