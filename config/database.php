@@ -26,7 +26,12 @@ class Database
             // Create connection with error reporting disabled
             mysqli_report(MYSQLI_REPORT_OFF);
 
-            $this->connection = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+            // Fix for VPS: Use 127.0.0.1 instead of localhost to avoid socket issues
+            // Also add port parameter for better compatibility
+            $host = ($this->host === 'localhost') ? '127.0.0.1' : $this->host;
+            $port = 3306; // Default MySQL port
+
+            $this->connection = new mysqli($host, $this->user, $this->pass, $this->dbname, $port);
 
             if ($this->connection->connect_error) {
                 error_log("Database Connection Error: " . $this->connection->connect_error);
