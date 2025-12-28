@@ -3,9 +3,9 @@ require_once __DIR__ . '/includes/init.php';
 
 // Log the logout event
 if (isAdminLoggedIn()) {
-    logSecurityEvent('Admin logged out', ['username' => $_SESSION['username'] ?? 'unknown']);
+    logSecurityEvent('Admin logged out', ['username' => isset($_SESSION['username']) ? $_SESSION['username'] : 'unknown']);
 } elseif (isLoggedIn()) {
-    logSecurityEvent('User logged out', ['username' => $_SESSION['user'] ?? 'unknown']);
+    logSecurityEvent('User logged out', ['username' => isset($_SESSION['user']) ? $_SESSION['user'] : 'unknown']);
 }
 
 // Destroy session securely

@@ -179,7 +179,7 @@ requireAdminLogin();
                         [$posisi, $tgl_awal, $tgl_akhir]
                     );
                 }
-                echo "Laki-laki : " . ($lakiData[0]['total'] ?? 0) . " orang <br>";
+                echo "Laki-laki : " . (isset($lakiData[0]['total']) ? $lakiData[0]['total'] : 0) . " orang <br>";
 
                 // Count by gender - Perempuan
                 if ($posisi == "Semua") {
@@ -195,7 +195,7 @@ requireAdminLogin();
                         [$posisi, $tgl_awal, $tgl_akhir]
                     );
                 }
-                echo "Perempuan : " . ($perempuanData[0]['total'] ?? 0) . " orang <br>";
+                echo "Perempuan : " . (isset($perempuanData[0]['total']) ? $perempuanData[0]['total'] : 0) . " orang <br>";
 
                 // Education levels
                 $educationLevels = ['SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'];
@@ -213,7 +213,7 @@ requireAdminLogin();
                             [$posisi, $tgl_awal, $tgl_akhir, $level]
                         );
                     }
-                    echo $level . " : " . ($eduData[0]['total'] ?? 0) . " orang <br>";
+                    echo $level . " : " . (isset($eduData[0]['total']) ? $eduData[0]['total'] : 0) . " orang <br>";
                 }
 
                 // Occupations
@@ -232,7 +232,7 @@ requireAdminLogin();
                             [$posisi, $tgl_awal, $tgl_akhir, $job]
                         );
                     }
-                    echo $job . " : " . ($jobData[0]['total'] ?? 0) . " orang <br>";
+                    echo $job . " : " . (isset($jobData[0]['total']) ? $jobData[0]['total'] : 0) . " orang <br>";
                 }
                 ?>
             </strong>
