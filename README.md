@@ -22,8 +22,9 @@ Aplikasi Buku Tamu dan Survei Kepuasan Masyarakat dengan keamanan tingkat tinggi
 ```
 bukutamu/
 ├── admin/          # Panel admin dan file management
-├── config/         # Konfigurasi database dan environment
+├── config/         # Konfigurasi database dan koneksi
 ├── includes/       # Library security dan polyfills
+├── pages/          # Halaman-halaman utama aplikasi
 ├── css/           # Stylesheet
 ├── js/            # JavaScript files
 ├── img/           # Images
@@ -52,10 +53,6 @@ mysql -u root -p < database.sql
 php -S localhost:8000
 ```
 
-### Production
-
-Lihat [DEPLOY.md](DEPLOY.md) untuk instruksi lengkap deployment ke VPS.
-
 ## 🔒 Security Features
 
 ✅ **SQL Injection Protection**: Prepared statements dengan parameter binding  
@@ -65,11 +62,6 @@ Lihat [DEPLOY.md](DEPLOY.md) untuk instruksi lengkap deployment ke VPS.
 ✅ **Password Hashing**: Bcrypt dengan cost factor 12  
 ✅ **Rate Limiting**: Login attempt throttling  
 ✅ **Input Validation**: Comprehensive validation functions
-
-## 📖 Dokumentasi
-
-- **[DEPLOY.md](DEPLOY.md)**: Panduan deployment lengkap
-- **[.env.example](.env.example)**: Template environment variables
 
 ## 🔧 Requirements
 
@@ -85,11 +77,3 @@ Default admin credentials (ganti setelah first login):
 - URL: `/admin/`
 - Username: admin
 - Password: (set saat instalasi)
-
-## 📝 License
-
-Dinas Perpustakaan dan Kearsipan Kota Medan © 2023
-
-## 🤝 Support
-
-Untuk pertanyaan atau bantuan, hubungi tim IT Dispusar Kota Medan.

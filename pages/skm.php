@@ -1,7 +1,8 @@
 <?php
 session_start();
 ob_start();
-include("koneksi.php");
+date_default_timezone_set("Asia/Jakarta");
+include("../config/koneksi.php");
 $sqlsoal = mysqli_query($koneksi1, "SELECT * FROM tb_soal");
 
 $tempat = $_SESSION["tempat"];
@@ -10,7 +11,7 @@ if (isset($_SESSION['user'])) {
 } else {
 
     if (isset($_SESSION['tempat'])) {
-        header("Location:index2.php?tempat=" . $tempat . "");
+        header("Location:index.php?tempat=" . $tempat . "");
     } else {
         header("Location:error.php");
     }
@@ -19,7 +20,7 @@ if (isset($_POST['logout'])) {
 
     session_destroy();
 
-    header("Location: index2.php?tempat=" . $tempat . "");
+    header("Location: index.php?tempat=" . $tempat . "");
 }
 
 
@@ -90,6 +91,47 @@ if (isset($_POST['logout'])) {
 
 <body>
 
+    <?php
+
+
+    if (isset($_POST['tombol'])) {
+
+        $layanan = "Perpustakaan";
+        $nama = $_SESSION['user'];
+
+        $tanggal = date('Y-m-d');
+        $waktu = date('H:i:s');
+        $jk = $_SESSION['jk'];
+        $usia = $_SESSION['usia'];
+        $didik = $_SESSION['didik'];
+        $kerja = $_SESSION['kerja'];
+        $pilih1 = htmlspecialchars($_POST['pilih1']);
+        $pilih2 = htmlspecialchars($_POST['pilih2']);
+        $pilih3 = htmlspecialchars($_POST['pilih3']);
+        $pilih4 = htmlspecialchars($_POST['pilih4']);
+        $pilih5 = htmlspecialchars($_POST['pilih5']);
+        $pilih6 = htmlspecialchars($_POST['pilih6']);
+        $pilih7 = htmlspecialchars($_POST['pilih7']);
+        $pilih8 = htmlspecialchars($_POST['pilih8']);
+        $pilih9 = htmlspecialchars($_POST['pilih9']);
+        $saran = htmlspecialchars($_POST['saran']);
+
+        $simpan = mysqli_query($koneksi1, "INSERT INTO tb_isian (layanan,nama,tanggal,jam,jk,usia,pendidikan,pekerjaan,jawab1,jawab2,jawab3,jawab4,jawab5,jawab6,jawab7,jawab8,jawab9,saran) VALUES ('$layanan','$nama','$tanggal','$waktu','$jk','$usia','$didik','$kerja','$pilih1','$pilih2','$pilih3','$pilih4','$pilih5','$pilih6','$pilih7','$pilih8','$pilih9','$saran')");
+
+
+        echo '<script>
+    Swal.fire(
+
+        "Data Berhasil Dikirim",
+        "Terimakasih Surveinya",
+        "success"
+    ).then(function() {
+        window.location = "../link.php";
+    })
+    </script>';
+    }
+
+    ?>
 
     <!-- Business Plan Section Start -->
     <section id="business-plan">
@@ -115,9 +157,9 @@ if (isset($_POST['logout'])) {
                             </div>
                         </div>
 
-                        <p>Selamat datang di layanan pemesanan buku Dinas Perpustakaan dan Kearsipan Kota Medan. Kami menyediakan fasilitas untuk menerima usulan dan permintaan pengadaan buku dari masyarakat. Jika Anda membutuhkan buku tertentu yang belum tersedia di koleksi perpustakaan kami, silakan mengisi formulir pemesanan buku di bawah ini. Tim kami akan mengevaluasi dan mempertimbangkan setiap permintaan untuk meningkatkan koleksi perpustakaan sesuai kebutuhan pembaca. Terima kasih atas partisipasi Anda dalam mengembangkan perpustakaan kami.</p>
+                        <p>Selamat datang di Dinas Perpustakaan dan Kearsipan Kota Medan. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat dalam bidang perpustakaan dan kearsipan. Melalui survei kepuasan ini, kami ingin mengetahui pendapat Anda tentang kualitas layanan kami. Masukan dan saran Anda sangat berharga untuk meningkatkan kualitas pelayanan perpustakaan yang lebih baik di masa mendatang. Terima kasih atas partisipasi Anda dalam mengisi survei kepuasan masyarakat ini.</p>
 
-                        <a class="btn btn-common" href="/bukutamu/link.php">Home</a>
+                        <a class="btn btn-common" href="index2.php">Home</a>
 
 
                     </div>
@@ -136,9 +178,9 @@ if (isset($_POST['logout'])) {
                 <div class="col-lg-12">
                     <div class="features-text section-header text-center">
                         <div>
-                            <h2 class="section-title">PESAN BUKU</h2>
+                            <h2 class="section-title">SURVEI KEPUASAN MASYARAKAT</h2>
                             <div class="desc-text">
-                                <p>Kami menyediakan kolom masukan untuk menyediakan buku yang diminati para pembaca, untuk membuat pesanan buku harap isi kolom berikut.</p>
+                                <p>Kami memiliki beberapa pertanyaan survei guna meningkatkan pelayanan dan kenyamanan pembaca diperpustakaan, dimohon berikan survei anda guna meningkatkan kualitas dari Dinas Perpustakaan dan Kearsipan Kota Medan</p>
                             </div>
                         </div>
                     </div>
@@ -159,43 +201,49 @@ if (isset($_POST['logout'])) {
         <div class="container">
             <div class="col-lg-12 col-md-6">
                 <form action="" method="post">
-                    <div class="row">
-                        <di class="col-md-2">
-                            <label for="judul">
-                                <p class="p" style="font-size: 20px;">Judul Buku</p>
-                            </label>
-                        </di>
-                        <div class="form-group col-md-10">
-                            <input type="text" required name="judul" class="form-control form-control-user" id="judul" placeholder="Judul Buku">
-                        </div>
-                    </div>
+                    <table>
+                        <?php while ($datasoal = mysqli_fetch_assoc($sqlsoal)) {
+                            $no = $datasoal['id']; ?>
+                            <tr>
+                                <td valign="top" style="width:30px;">
+                                    <p style="font-size: 24px;"><br><?= $no; ?>.</p>
+                                </td>
+                                <td>
+                                    <p class="p" style="font-size: 30px;"><br><?= $datasoal['soal'] . " ? <br> <br>"; ?> </p>
+                                </td>
+                            <tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input style="width: 20px; height:20px;" type="radio" name="pilih<?= $no; ?>" value=1 id="opsi1<?= $no ?>" required>
+                                    <label for="opsi1<?= $no ?>">
+                                        <p style="font-size: 27px; color:black"> &nbsp; <?= $datasoal['opsi1']; ?></p>
+                                    </label><br>
+                                    <input style="width: 20px; height:20px;" type="radio" name="pilih<?= $no; ?>" value=2 id="opsi2<?= $no ?>"><label for="opsi2<?= $no ?>">
+                                        <p style="font-size: 27px; color:black"> &nbsp; <?= $datasoal['opsi2']; ?></p>
+                                    </label><br>
+                                    <input style="width: 20px; height:20px;" type="radio" name="pilih<?= $no; ?>" value=3 id="opsi3<?= $no ?>"><label for="opsi3<?= $no ?>">
+                                        <p style="font-size: 27px; color:black"> &nbsp; <?= $datasoal['opsi3']; ?> </p>
+                                    </label><br>
+                                    <input style="width: 20px; height:20px;" type="radio" name="pilih<?= $no; ?>" value=4 id="opsi4<?= $no ?>"><label for="opsi4<?= $no ?>">
+                                        <p style="font-size: 27px; color:black"> &nbsp; <?= $datasoal['opsi4']; ?> </p>
+                                    </label>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        <tr>
+                            <td></td>
+                            <td><br>
+                                <bold>Saran/Masukan</bold><br>
+                                <textarea name="saran" class="form-control"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><br> <input class="btn btn-common" style="width: 100%;" type="submit" value="Kirim" name="tombol" class=" btn btn-primary btn-user btn-block"></td>
+                        </tr>
+                    </table><br>
 
-                    <div class="row">
-                        <di class="col-md-2">
-                            <label for="penerbit">
-                                <p class="p" style="font-size: 20px;">Penerbit Buku</p>
-                            </label>
-                        </di>
-                        <div class="form-group col-md-10">
-                            <input type="text" required name="penerbit" class="form-control form-control-user" id="penerbit" placeholder="Penerbit Buku">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <di class="col-md-2">
-                            <label for="penulis">
-                                <p class="p" style="font-size: 20px;">Penulis Buku</p>
-                            </label>
-                        </di>
-                        <div class="form-group col-md-10">
-                            <input type="text" required name="penulis" class="form-control form-control-user" id="penulis" placeholder="Penulis Buku">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <input class="btn btn-common" style="width: 100%;" type="submit" value="Pesan" name="pesan" class=" btn btn-primary btn-user btn-block"></td>
-                    </div>
                 </form>
 
             </div>
@@ -204,26 +252,7 @@ if (isset($_POST['logout'])) {
 
 
 
-    <?php
 
-
-    if (isset($_POST['pesan'])) {
-        $judul = htmlspecialchars($_POST['judul']);
-        $penulis = htmlspecialchars($_POST['penulis']);
-        $penerbit = htmlspecialchars($_POST['penerbit']);
-        $tanggal = date('Y-m-d');
-        $sqlpesan = mysqli_query($koneksi, "INSERT INTO tb_pesanbuku (judul,tanggal,penulis,penerbit) VALUES ('$judul','$tanggal','$penulis','$penerbit')");
-        echo '<script>
-        Swal.fire(
-    
-            "Data Berhasil Dikirim",
-            "Terimakasih, Pesanan akan kami pertimbangkan",
-            "success"
-        ).then(function() {
-            window.location = "link.php";
-        })
-        </script>';
-    } ?>
 
 
 

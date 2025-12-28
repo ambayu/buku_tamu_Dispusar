@@ -2,7 +2,7 @@
 $menu = $_SESSION['menu'];
 
 $level = $_SESSION['level'];
-include("koneksi.php");
+include("../config/koneksi.php");
 
 // Detect if called from admin/ folder
 $imgPath = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../img/medan.png' : 'img/medan.png';

@@ -31,7 +31,7 @@ $sqldidik = mysqli_query($koneksi, "SELECT * FROM tb_didik");
 
 // Redirect if already logged in
 if (isLoggedIn()) {
-    redirect("link.php");
+    redirect("../link.php");
 }
 
 function validasiPanjang($username, $password)

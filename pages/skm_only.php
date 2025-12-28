@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 date_default_timezone_set("Asia/Jakarta");
-include("koneksi.php");
+include("../config/koneksi.php");
 $sqlsoal = mysqli_query($koneksi1, "SELECT * FROM tb_soal");
 
 $tempat = $_SESSION["tempat"];
@@ -126,7 +126,7 @@ if (isset($_POST['logout'])) {
         "Terimakasih Surveinya",
         "success"
     ).then(function() {
-        window.location = "link.php";
+        window.location = "../link.php";
     })
     </script>';
     }
