@@ -1,6 +1,75 @@
 <?php
 require_once __DIR__ . '/includes/init.php';
 
+// Check if tempat parameter is not set, show location selection dashboard
+if (!isset($_GET['tempat']) || $_GET['tempat'] == "") {
+    // Query locations from database
+    $sql_lokasi = mysqli_query($koneksi, "SELECT * FROM tb_lokasi");
+?>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pilih Lokasi Perpustakaan - Dinas Perpustakaan dan Kearsipan Kota Medan</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/sb-admin-2.min.css">
+        <style>
+            .bg-login-image {
+                background: url('img/loginbg.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+    </head>
+
+    <body class="bg-gradient-primary">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Pilih Lokasi Perpustakaan</h1>
+                                            <p class="mb-4">Silakan pilih lokasi perpustakaan yang ingin Anda kunjungi</p>
+                                        </div>
+                                        <div class="row">
+                                            <?php while ($row = mysqli_fetch_assoc($sql_lokasi)) { ?>
+                                                <div class="col-md-12 mb-3">
+                                                    <a href="index.php?tempat=<?= $row['id'] ?>" class="btn btn-primary btn-block btn-lg">
+                                                        <i class="fas fa-map-marker-alt mr-2"></i>
+                                                        <?= htmlspecialchars($row['lokasi']) ?>
+                                                    </a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+    </body>
+
+    </html>
+<?php
+    exit;
+}
+
 // Get and validate tempat parameter
 if (isset($_GET['tempat']) && $_GET['tempat'] != "") {
     $tempat = validateInt($_GET['tempat']);
@@ -181,6 +250,7 @@ function cekLogin($username, $password)
                                         <img class="mb-4" style="height: 90px;" src="img/medan.png" alt="">
                                         <h1 class="h4 text-gray-900 mb-4">Dinas Perpustakaan dan Kearsipan Kota Medan</h1>
                                         <h1 class="h4 text-gray-900 mb-4">BUKU TAMU</h1>
+                                        <p class="text-center text-primary font-weight-bold mb-4">Lokasi: <?= htmlspecialchars($lokasi) ?></p>
 
                                     </div>
                                     <form class="user" action="" method="POST">
@@ -200,7 +270,7 @@ function cekLogin($username, $password)
 
                                             </div>
                                             <div class=" col-md-12 text-center">
-                                                <a class="text-danger" href="register.php?tempat=<?= cleanOutput($tempat) ?>">
+                                                <a class="text-danger" href="pages/register.php?tempat=<?= cleanOutput($tempat) ?>">
                                                     <small>Register<small>
                                                 </a>
                                             </div>
@@ -227,7 +297,7 @@ function cekLogin($username, $password)
 
 
     <!-- sweetalert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

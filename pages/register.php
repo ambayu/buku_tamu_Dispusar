@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Get and validate tempat parameter
 if (isset($_GET['tempat']) && $_GET['tempat'] != "") {
@@ -61,11 +61,11 @@ function validasiPanjang($username, $password)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -244,7 +244,7 @@ function validasiPanjang($username, $password)
                                     <div class="text-center">
 
 
-                                        <img class="mb-4" style="height: 90px;" src="img/medan.png" alt="">
+                                        <img class="mb-4" style="height: 90px;" src="../img/medan.png" alt="">
                                         <h1 class="h4 text-gray-900 mb-4">Dinas Perpustakaan dan Kearsipan Kota Medan</h1>
                                         <h1 class="h4 text-gray-900 mb-4">BUKU TAMU</h1>
                                         <p class="text-danger"><small>Harap mengingat password serta username untuk login anda</small></p>
@@ -344,16 +344,16 @@ function validasiPanjang($username, $password)
 
 
     <!-- sweetalert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
 </body>
 

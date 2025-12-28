@@ -50,7 +50,7 @@ requireAdminLogin();
 <body>
     <div class="header">
         <?php $_SESSION['menu'] = "bukutamu2";
-        include("../menu.php");
+        include("../includes/menu.php");
         ?>
     </div>
     <div class="container" style="max-width: 90%; margin-bottom:100px; margin-top:100px;">

@@ -7,7 +7,7 @@
  */
 
 // Load new system
-require_once __DIR__ . '/includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Backward compatibility aliases
 // $koneksi, $koneksi1, $koneksi2 sudah tersedia dari init.php

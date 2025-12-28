@@ -44,7 +44,7 @@ requireAdminLogin();
 
 
         <?php $_SESSION['menu'] = "adminleader";
-        include("../menu.php");
+        include("../includes/menu.php");
         $no = 1;
 
         if (isset($_POST['kirim'])) {

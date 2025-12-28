@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
 } else {
 
     if (isset($_SESSION['tempat'])) {
-        header("Location:index2.php?tempat=" . $tempat . "");
+        header("Location:../link.php");
     } else {
         header("Location:error.php");
     }
@@ -19,7 +19,7 @@ if (isset($_POST['logout'])) {
 
     session_destroy();
 
-    header("Location: index2.php?tempat=" . $tempat . "");
+    header("Location: ../link.php");
 }
 
 
@@ -68,7 +68,7 @@ if (isset($_POST['logout'])) {
     <meta name="author" content="Grayrids">
     <title>Dinas Perpustakaan dan Kearsipan Kota Medan</title>
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="/img/medan.png" type="image/png">
+    <link rel="shortcut icon" href="../img/medan.png" type="image/png">
 
     <!-- sweet alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
@@ -76,15 +76,15 @@ if (isset($_POST['logout'])) {
 
     <!-- Bootstrap CSS -->
 
-    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/css/animate.css">
-    <link rel="stylesheet" href="vendor/css/LineIcons.css">
-    <link rel="stylesheet" href="vendor/css/owl.carousel.css">
-    <link rel="stylesheet" href="vendor/css/owl.theme.css">
-    <link rel="stylesheet" href="vendor/css/magnific-popup.css">
-    <link rel="stylesheet" href="vendor/css/nivo-lightbox.css">
-    <link rel="stylesheet" href="vendor/css/main.css">
-    <link rel="stylesheet" href="vendor/css/responsive.css">
+    <link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/css/animate.css">
+    <link rel="stylesheet" href="../vendor/css/LineIcons.css">
+    <link rel="stylesheet" href="../vendor/css/owl.carousel.css">
+    <link rel="stylesheet" href="../vendor/css/owl.theme.css">
+    <link rel="stylesheet" href="../vendor/css/magnific-popup.css">
+    <link rel="stylesheet" href="../vendor/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="../vendor/css/main.css">
+    <link rel="stylesheet" href="../vendor/css/responsive.css">
 
 </head>
 
@@ -99,7 +99,7 @@ if (isset($_POST['logout'])) {
                 <!-- Start Col -->
                 <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
                     <div class="business-item-img">
-                        <img src="img/contact/01.png" class="img-fluid" alt="">
+                        <img src="../img/contact/01.png" class="img-fluid" alt="">
                     </div>
                 </div>
                 <!-- End Col -->
@@ -270,18 +270,16 @@ if (isset($_POST['logout'])) {
     <!-- End Preloader -->
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="vendor/js/jquery-min.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/owl.carousel.js"></script>
-    <script src="vendor/js/jquery.nav.js"></script>
-    <script src="vendor/js/scrolling-nav.js"></script>
-    <script src="vendor/js/jquery.easing.min.js"></script>
-    <script src="vendor/js/nivo-lightbox.js"></script>
-    <script src="vendor/js/jquery.magnific-popup.min.js"></script>
-    <script src="vendor/js/form-validator.min.js"></script>
-    <script src="vendor/js/contact-form-script.js"></script>
-    <script src="vendor/js/main.js"></script>
+    <script src="../vendor/js/jquery-min.js"></script>
+    <script src="../vendor/js/popper.min.js"></script>
+    <script src="../vendor/js/bootstrap.min.js"></script>
+    <script src="../vendor/js/owl.carousel.js"></script>
+    <script src="../vendor/js/jquery.nav.js"></script>
+    <script src="../vendor/js/scrolling-nav.js"></script>
+    <script src="../vendor/js/jquery.easing.min.js"></script>
+    <script src="../vendor/js/nivo-lightbox.js"></script>
+    <script src="../vendor/js/jquery.magnific-popup.min.js"></script>
+    <script src="../vendor/js/main.js"></script>
 
 </body>
 

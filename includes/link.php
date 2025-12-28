@@ -268,7 +268,7 @@ if (isset($_POST['logout'])) {
           </a>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 mt-2 ">
-          <a href="pesanbuku.php">
+          <a href="../pages/pesanbuku.php">
             <div class="services-item text-center">
               <div class="icon">
                 <i class="lni-layers"></i>
@@ -280,7 +280,7 @@ if (isset($_POST['logout'])) {
         </div>
 
         <div class="col-lg-6 col-md-6 col-xs-12 mt-2">
-          <a href="skm.php?tempat=<?= $tempat ?>">
+          <a href="../pages/skm.php?tempat=<?= $tempat ?>">
             <div class="services-item text-center">
               <div class="icon">
                 <i class="lni-heart"></i>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Log the logout event
 if (isAdminLoggedIn()) {
@@ -19,12 +19,12 @@ if (isset($_COOKIE[session_name()])) {
 
 // Redirect to appropriate page
 if (isset($_GET['admin'])) {
-    redirect("loginadmin.php");
+    redirect("../admin/loginadmin.php");
 } else {
     // Redirect to home or login page
     if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'admin') !== false) {
-        redirect("loginadmin.php");
+        redirect("../admin/loginadmin.php");
     } else {
-        redirect("index.php" . (isset($_GET['tempat']) ? "?tempat=" . validateInt($_GET['tempat']) : ""));
+        redirect("../index.php" . (isset($_GET['tempat']) ? "?tempat=" . validateInt($_GET['tempat']) : ""));
     }
 }

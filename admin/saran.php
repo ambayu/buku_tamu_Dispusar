@@ -43,7 +43,7 @@ if (!isset($_SESSION['adminname'])) {
 
         <div class="col-md-12">
             <?php $_SESSION['menu'] = "saran";
-            include("../menu.php");
+            include("../includes/menu.php");
             $no = 1; ?>
         </div>
 
