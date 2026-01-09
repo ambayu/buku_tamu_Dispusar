@@ -111,7 +111,7 @@ requireAdminLogin();
                             <td><?= $no++; ?></td>
                             <td><?= date('d-m-Y', strtotime($datakunjungan['tanggal'])); ?></td>
                             <td><?= date('H:i', strtotime($datakunjungan['jam'])); ?></td>
-                            <td><?= $datakunjungan['id']; ?></td>
+                            <td><?= $datakunjungan['nama']; ?></td>
                             <td><?= $datakunjungan['umur']; ?></td>
                             <td><?= $datakunjungan['kerja']; ?></td>
                             <td><?= $datakunjungan['didik']; ?></td>
